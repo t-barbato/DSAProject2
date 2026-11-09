@@ -2,10 +2,11 @@
 #include <vector>
 #include <sstream>
 #include <string>
+#pragma once
 using namespace std;
 
-struct Node {
-    int ID;
+struct Key {
+    long long ID;
     string crime;
     string address;
     string date; // 06/08/2025
@@ -13,20 +14,11 @@ struct Node {
     int month;
     int year;
 
-    vector<Node*> children;
-
-    Node(int id, string offense,string date, string location) {
+    Key(const long long &id, const string &offense,const string &date, const string &location) {
         this->ID = id;
         this->crime = offense;
         this->date = date;
         this->address = location;
-        convertDates(date);
-    }
-    void addChild(Node* child) {
-        this->children.push_back(child);
-    }
-
-    void convertDates(string date) {
         string sday, smonth, syear;
         stringstream ss(date);
         getline(ss, smonth, '/');
@@ -35,6 +27,5 @@ struct Node {
         month = stoi(smonth);
         day = stoi(sday);
         year = stoi(syear);
-
     }
 };

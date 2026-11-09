@@ -3,11 +3,12 @@ project(DSAProject2)
 
 set(CMAKE_CXX_STANDARD 20)
 
-include_directories(Trees)
+include_directories(BTree)
 
 add_executable(DSAProject2
-        Trees/BTree.cpp
-        Trees/BTree.h
-        Trees/BPlusTree.h
-        main.cpp
-        Trees/Node.h)
+        BTree/BTree.cpp
+        BTree/BTree.h
+        BPlusTree.h
+        BTree/Key.h
+        BTree/Node.h
+)
